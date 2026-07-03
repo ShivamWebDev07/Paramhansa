@@ -1,0 +1,1340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --gold: #FF8C00;
+    --saffron: #FF6B35;
+    --deep-saffron: #FF5722;
+    --maroon: #FF6B35;
+    --dark-bg: #FFFFFF;
+    --light-bg: #FFF5F0;
+    --text-dark: #1a1a1a;
+    --text-light: #FFFFFF;
+    --accent: #FF6B35;
+    --cream: #FFF8F5;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background: var(--dark-bg);
+    color: var(--text-dark);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+    background: #FFFFFF;
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(255, 107, 53, 0.15);
+    animation: slideDown 0.6s ease-out;
+    border-bottom: 3px solid #FF6B35;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #FF8C00, #FF6B35);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.logo-text {
+    color: #FF6B35;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.logo-text span {
+    display: block;
+    font-size: 0.7rem;
+    color: #FF8C00;
+    font-weight: 400;
+    margin-top: -0.3rem;
+}
+
+nav a {
+    color: #333333;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    margin: 0 1.5rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #FF6B35;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #FF6B35;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 88vh;
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C00 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="%23FFFFFF" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="url(%23dots)"/></svg>');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(50px, 50px);
+    }
+}
+
+.hero-content {
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    color: #FFFFFF;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #FFFFFF;
+    font-weight: 300;
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #FF8C00, #FF6B35);
+    color: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+}
+
+.btn-secondary:hover {
+    background: #FFFFFF;
+    color: #FF6B35;
+    transform: translateY(-3px);
+}
+
+/* About Section */
+.about {
+    background: #FFFFFF;
+    padding: 6rem 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #FF6B35;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #FF8C00, #FF6B35);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #FF6B35;
+    margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 2rem;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+}
+
+.about-image {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, #FF8C00, #FF6B35);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    color: white;
+    box-shadow: 0 20px 60px rgba(255, 107, 53, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-image::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: movePattern 20s linear infinite;
+}
+
+@keyframes movePattern {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+/* Services Section */
+.services {
+    background: #FF6B35;
+    padding: 4rem 2rem;
+    color: var(--text-light);
+}
+
+.services .section-title {
+    color: #FFFFFF;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+    padding: 2.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #FFFFFF;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.service-card:hover::before {
+    left: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+    border-left-color: #FFFFFF;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+.service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+.service-card p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* Events Section */
+.events {
+    background: #FFFFFF;
+    padding: 6rem 2rem;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.event-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+}
+
+.event-header {
+    height: 200px;
+    background: linear-gradient(135deg, #FF8C00, #FF6B35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,50 Q50,20 80,50 T140,50" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/></svg>');
+    opacity: 0.2;
+}
+
+.event-content {
+    padding: 2rem;
+}
+
+.event-date {
+    color: #FF6B35;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.event-card p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.event-btn {
+    color: #FF6B35;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.event-btn:hover {
+    color: #FF8C00;
+    transform: translateX(5px);
+}
+
+/* Gallery Section */
+.gallery {
+    background: #FF6B35;
+    padding: 6rem 2rem;
+    color: var(--text-light);
+}
+
+.gallery .section-title {
+    color: #FFFFFF;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #FF8C00, #FF6B35);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    group: gallery-item;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease;
+}
+
+.gallery-item:hover::before {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 2rem;
+}
+
+.gallery-item:hover .gallery-item-content {
+    opacity: 1;
+}
+
+.gallery-item-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.contact {
+    background: #FFFFFF;
+    padding: 6rem 2rem;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    color: #FF6B35;
+    min-width: 30px;
+}
+
+.contact-item h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.contact-item p {
+    color: #666;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #FF6B35;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Footer */
+footer {
+    background: #FF6B35;
+    color: var(--text-light);
+    padding: 3rem 2rem 1rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.footer-section h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #FFFFFF;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #FFFFFF;
+    color: #FF6B35;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Bottom Navigation - Mobile/Tablet */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border-top: 2px solid #FF6B35;
+    z-index: 999;
+    padding: 0.5rem 0;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-nav-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 100%;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    text-decoration: none;
+    color: #999;
+    padding: 0.8rem 0.5rem;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.bottom-nav-item:hover,
+.bottom-nav-item.active {
+    color: #FF6B35;
+}
+
+.bottom-nav-item i {
+    font-size: 1.5rem;
+}
+
+.bottom-nav-item span {
+    font-size: 0.7rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* Responsive - Show bottom nav on mobile/tablet */
+@media (max-width: 1024px) {
+    header nav {
+        display: none;
+    }
+
+    body {
+        padding-bottom: 70px;
+    }
+
+    .bottom-nav {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 75px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .hero p {
+        font-size: 1.05rem;
+    }
+}
+
+/* update form here */
+header{
+    padding-top: 8px;
+    padding-bottom:8px ;
+}
+
+/* --- Modern Styled Scrollbar --- */
+
+/* 1. Purre scrollbar ki width aur height */
+::-webkit-scrollbar {
+    width: 10px; /* Thoda aur patla (sleek) */
+    height: 10px; /* Horizontal scrollbar ke liye */
+}
+
+/* 2. Scrollbar Buttons (Up/Down Arrows) ko remove karne ke liye */
+::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* 3. Track (Neeche ki patti) */
+::-webkit-scrollbar-track {
+    background: #FFF8F5; /* Creamy white background */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05); /* Halika sa depth effect */
+}
+
+/* 4. Thumb (Moving part) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #FF8C00 0%, #FF5722 100%);
+    border-radius: 10px;
+    border: 2px solid #FFF8F5; /* Isse floating look milta hai */
+    transition: background 0.3s ease;
+}
+
+/* 5. Hover Effect */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #FF6B35 0%, #E64A19 100%);
+    cursor: pointer;
+}
+
+/* 6. Corner (Jahan horizontal aur vertical scrollbar milte hain) */
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.logo-icon {
+    border-radius: 50%; /* Isse div circle ban jayega */
+    overflow: hidden;   /* Jo part circle ke bahar jayega wo kat jayega */
+    border: 3px solid #FF6B35; /* Optional: Thoda look ke liye border */
+}
+
+.logo-icon img {
+    width: 100%;        /* Image div ki poori width le legi */
+    height: 100%;       /* Image div ki poori height le legi */
+    object-fit: cover;  /* SABSE IMPORTANT: Isse image stretch nahi hogi aur center mein fit ho jayegi */
+    object-position: center; /* Image ka face center mein dikhega */
+}
+
+.about-image img {
+    width: 100%;        /* Image div ki poori width le legi */
+    height: 100%;       /* Image div ki poori height le legi */
+    object-fit: cover;  /* SABSE IMPORTANT: Isse image stretch nahi hogi aur center mein fit ho jayegi */
+    object-position: top; /* Image ka face center mein dikhega */
+}
+
+/* Hero Section Main Styling */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 90vh; /* Puri screen cover karega */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Slideshow Container Styling */
+.slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Background mein rakhne ke liye */
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Smooth transition effect */
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Images auto-adjust ho jayengi bina stretch hue */
+}
+
+/* Dark Overlay (Optional - Taaki images ke upar tumhara white text ekdum clear dikhe) */
+.slideshow-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* 40% Black overlay (adjust as needed) */
+  z-index: 1;
+}
+
+/* Content Overlay Styling */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Text ko slideshow ke upar lane ke liye */
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+  max-width: 800px;
+}
+
+/* Buttons aur Text ki sizing tumhare hisab se responsive rahegi */
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 4rem); /* Auto text scaling */
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+/* Tumhare custom buttons ki styles yahan add kar lena */
+
+/*  update */
+/* Hero Parent Wrapper */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 89vh; /* Navbar ke niche fitting ke liye thoda adjust kiya */
+  overflow: hidden;
+}
+
+/* Background Slider Layout */
+.slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slide-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide-img.active {
+  opacity: 1;
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0.5) 45%, rgba(255, 255, 255, 0) 80%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Controlled Content Box (Jo tumne screenshot mein mark kiya hai) */
+.hero-content {
+  position: absolute;
+  bottom: 8%; /* Content ko bohot bada nahi banna, yahan bound rahega */
+  left: 6%;
+  z-index: 3;
+  max-width: 650px; /* Text boundary horizontally limited */
+  text-align: left;
+}
+
+/* 🟠 Title Set to Orange & Size Reduced */
+.hero-content h1 {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem); /* Text size ko bohot chota aur clean kar diya */
+  font-weight: 700;
+  color: #e05a2b; /* Pure clean orange tone */
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* Subtitle Adjustments */
+.hero-content p {
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  color: #444444;
+  margin-bottom: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Custom Buttons Styling (Inhe plain blue links ki jagah professional rounded feel de diya) */
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-join, .btn-learn {
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-join {
+  background: #e05a2b;
+  color: #ffffff;
+}
+
+.btn-learn {
+  border: 2px solid #e05a2b;
+  color: #e05a2b;
+}
+
+.btn-join:hover { background: #c84e22; }
+.btn-learn:hover { background: #e05a2b; color: #fff; }
+
+/* Hero Parent Wrapper */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 85vh; /* Aap apne navbar ke hisab se height check kar sakte hain */
+  overflow: hidden;
+  background-color: #fcf9f6;
+}
+
+/* Background Slider Container */
+.slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slide-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide-img.active {
+  opacity: 1;
+}
+
+/* 🟦 Blue Line Mapping: Perfect White Gradient Control */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Niche se 15% tak pure solid white rahega text clarity ke liye, 
+     phir blue line (40%) tak aate-aate bilkul 0% yani transparent ho jayega */
+  background: linear-gradient(to top, 
+    rgba(252, 249, 246, 1) 0%, 
+    rgba(252, 249, 246, 0.95) 15%, 
+    rgba(252, 249, 246, 0.4) 30%, 
+    rgba(252, 249, 246, 0) 40%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 🟨 Yellow Box Mapping: Controlled Text Area */
+.hero-content {
+  position: absolute;
+  bottom: 5%;      /* Niche se thoda sa upar margin */
+  left: 6%;        /* Left side alignment spacing */
+  z-index: 3;
+  max-width: 680px; /* Horizontally boundary setup */
+  height: auto;
+  max-height: 30%; /* Yellow box text height restriction */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* 🟠 Title Set to Orange & Controlled Size */
+.hero-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.3rem); /* Size thoda aur clean aur bound kiya */
+  font-weight: 700;
+  color: #e05a2b; /* Pure sharp orange */
+  margin-bottom: 8px;
+  line-height: 1.25;
+  opacity: 1;
+}
+
+/* Subtitle Configuration */
+.hero-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  color: #333333; /* Dark charcoal color for heavy contrast on white bg */
+  margin-bottom: 0; /* Buttons nahi hain toh margin bottom 0 */
+  font-weight: 500;
+  line-height: 1.45;
+  opacity: 1;
+}
+
+/* 🟨 Yellow Box Mapping: Controlled Text Area (Ab aur niche aur ek line mein) */
+.hero-content {
+  position: absolute;
+  bottom: 3%;       /* Niche se distance kam kar diya taaki text aur niche chala jaye */
+  left: 6%;         /* Left alignment layout */
+  z-index: 3;
+  max-width: 90%;   /* Width badha di taaki text ko failne ke liye poori jagah mile */
+  height: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none; /* Slider ya background clicks mein rukawat na bane */
+}
+
+/* 🟠 Title Set to Orange & Forced to Single Line */
+.hero-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem); /* Size thoda optimize kiya taaki bade screens par bhi 1 line mein aaye */
+  font-weight: 700;
+  color: #e05a2b; /* Pure sharp orange */
+  margin-bottom: 4px; /* Subtitle ke beech ka gap thoda kam kiya */
+  line-height: 1.2;
+  white-space: nowrap; /* 🚫 Text ko tutkar dusri line mein jaane se rokega */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Agar screen bohot hi choti ho toh text automatic cut ho jaye bina layout kharab kiye */
+}
+
+/* Subtitle Configuration (Forced to Single Line) */
+.hero-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  color: #333333; /* Heavy charcoal gray contrast */
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap; /* 🚫 Subtitle ko bhi strictly ek line mein lock kar diya */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 🟦 Gradient Overlay Refinement: Image ki brightness badhane ke liye */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradient ko sirf bottom 20% mein rakha hai jahan text hai, 
+     22% ke upar photo 100% original aur bright dikhegi */
+  background: linear-gradient(to top, 
+    rgba(252, 249, 246, 1) 0%,       /* Niche bilkul solid background match */
+    rgba(252, 249, 246, 0.95) 8%,     /* Text ke peeche halka sa white contrast shadow */
+    rgba(252, 249, 246, 0.3) 16%,     /* Makkhan jaisa blend */
+    rgba(252, 249, 246, 0) 22%        /* 22% par gradient khatam! Photo ab ekdum bright dikhegi */
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 🟨 Text Block Layout Adjustment */
+.hero-content {
+  position: absolute;
+  bottom: 2%;       /* Text ko aur thoda sa niche edge ke pass sarakaya */
+  left: 6%;         
+  z-index: 3;
+  max-width: 90%;   
+  height: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+/* 🟠 Title Font & Weight Tuning */
+.hero-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem); /* Size thoda sa optimize kiya taaki edge na touch ho */
+  font-weight: 700;
+  color: #f8e838; /* Pure Orange */
+  margin-bottom: 2px; /* Title aur subtitle ka gap ekdum perfect narrow kiya */
+  line-height: 1.2;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Subtitle Font Adjustment */
+.hero-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.85rem, 1.2vw, 1.0rem);
+  color: #2c2c2c; /* Text ko thoda aur sharp dark charcoal kiya taaki white background par clean dikhe */
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 🟦 Perfect Balanced Gradient: Text readability + Photo brightness */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Is logic se text ke peeche solid white rahega aur upar jaake smooth blend hoga */
+  background: linear-gradient(to top, 
+    rgba(252, 249, 246, 1) 0%,       /* Bilkul bottom mein 100% solid white background match */
+    rgba(252, 249, 246, 1) 12%,      /* 12% tak pure solid white rahega taaki dono text lines makkhan read hon */
+    rgba(252, 249, 246, 0.6) 20%,    /* Text ke thoda upar aate hi gradient halka (light white cloud) ho jayega */
+    rgba(252, 249, 246, 0.2) 25%,    /* Ekdum smooth, dhire-dhire khatam hone wali transition */
+    rgba(252, 249, 246, 0) 28%        /* 28% ke upar poori tarah transparent! Image ekdum natural aur bright dikhegi */
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 🟨 Text container placement adjustment */
+.hero-content {
+  position: absolute;
+  bottom: 2.5%;     /* Niche se perfect safety margin taaki text bottom edge se na chipke */
+  left: 6%;         
+  z-index: 3;
+  max-width: 90%;   
+  height: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+/* 🟦 Text ke peeche FULL WHITE + Uske upar smooth chota gradient */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Is logic se niche ka poora hissa solid white rahega, aur text ke upar thodi door tak gradient chalega */
+  background: linear-gradient(to top, 
+    rgba(252, 249, 246, 0.828) 0%,       /* Bilkul bottom se solid white shuru */
+    rgba(252, 249, 246, 0.729) 15%,      /* 15% height tak FULL WHITE (Text ke peeche poora solid block) */
+    rgba(252, 249, 246, 0.317) 22%,    /* Text ke upar thode dur tak halka gradient (White shadow) */
+    rgba(252, 249, 246, 0.2) 26%,    /* Smooth transition fade out */
+    rgba(252, 249, 246, 0) 30%        /* 30% ke upar gradient poora khatam, photo ekdum bright aur original */
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 🟨 Text Block Layout: Solid white portion ke andar perfectly aligned */
+.hero-content {
+  position: absolute;
+  bottom: 4%;       /* Ise thoda upar laya taaki ye full white area ke upar perfectly read ho */
+  left: 6%;         
+  z-index: 3;
+  max-width: 90%;   
+  height: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+/* 🟠 Title Font Adjustment */
+.hero-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem); 
+  font-weight: 700;
+  color: #e64105; /* Pure Orange */
+  margin-bottom: 4px; 
+  line-height: 1.2;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Subtitle Font Adjustment */
+.hero-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  color: #2c2c2c; /* Sharp contrast charcoal color */
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ❌ ISKO POORA DELETE KARDO (Yeh photo ko andhera kar raha hai) */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  /* ... isme background: rgba(0,0,0,0.4) jaisa kuch hoga, is pure block ko saaf kar do ... */
+}
