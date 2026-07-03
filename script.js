@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let slideData = [
       {
         id: 1,
-        image: "images/babakuti.png", 
+        image: "babakuti.png", 
         title: "Paramhans Laxminath Gowswami Samiti",
         subtitle: "A sacred sanctuary dedicated to spiritual enlightenment and divine devotion"
       },
       {
         id: 2,
-        image: "images/thakurbari.png",
+        image: "thakurbari.png",
         title: "Divine Blessings & Eternal Teachings",
         subtitle: "Explore the internal wisdom, peace, and spiritual journey guided by Babaji"
       },
