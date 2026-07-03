@@ -13,12 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Divine Blessings & Eternal Teachings",
         subtitle: "Explore the internal wisdom, peace, and spiritual journey guided by Babaji"
       },
-      {
-        id: 3,
-        image: "https://picsum.photos/id/1018/1920/1080",
-        title: "Spiritual Community & Satsang",
-        subtitle: "Experience collective growth and inner transformation with devotion"
-      }
     ];
 
     let currentIdx = 0;
