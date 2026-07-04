@@ -1384,3 +1384,7 @@ header{
         font-size: 0.55rem;
     }
 }
+/* Removes the blue tap flash on mobile browsers */
+a, button, input, textarea, select {
+    -webkit-tap-highlight-color: transparent !important;
+}
