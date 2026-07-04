@@ -1388,3 +1388,16 @@ header{
 a, button, input, textarea, select {
     -webkit-tap-highlight-color: transparent !important;
 }
+@media (max-width: 480px) {
+    header {
+        padding: 14px 0;   /* increases header height, mobile only */
+    }
+
+    .bottom-nav {
+        padding: 0.25rem 0;   /* shrinks bottom nav, mobile only */
+    }
+
+    .bottom-nav-item {
+        padding: 0.4rem 0.5rem;   /* mobile only */
+    }
+}
